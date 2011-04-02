@@ -1,0 +1,77 @@
+# Ord
+
+'Ord' is danish and/or swedish for 'word'. Ord is a word search machine that may be fed with a list of words and you can then query it for subsets, e.g. all words starting with a certain phrase. To be honest it is pretty much a clone of [morewords.com](http://www.morewords.com/) but grew out of the need to have the results in json instead of html to be able to access it in a service architecture.
+
+## API
+
+Here is a list of resources that you can request.
+
+### `/<word>`
+  
+Will return the status 200 if word is in list and 400 if not. The content is empty
+
+
+
+_Example:_
+
+    GET http://example.com/word/beer
+
+    STATUS 200
+    
+    GET http://example.com/word/reeb
+
+    STATUS 404
+    
+  
+### `/starts-with/<word>`
+  
+Returns status 200 if any matches were found. The response.body will be filled with the result. If no words could be found it will return a status of 404.
+
+_Example:_
+
+    GET http://example.com/starts-with/beer
+
+    STATUS 200
+
+    [
+      'beerier',
+      'beeriest',
+      'beers'
+    ]
+  
+### `/ends-with/<word>`
+  
+Returns status 200 if any matches were found. The response.body will be filled with the result. If no words could be found it will return a status of 404.
+
+_Example:_
+
+    GET http://example.com/ends-with/ale
+
+    STATUS 200
+
+    [
+      'amygdale',
+      'antifemale',
+      'antimale',
+      'bale',
+      ...
+    ] 
+  
+### `/contains/<word>`
+  
+Returns status 200 if any matches were found. The response.body will be filled with the result. If no words could be found it will return a status of 404.
+
+_Example:_
+
+    GET http://example.com/contains/beer
+
+    STATUS 200
+
+    [
+      'ambeer',
+      'ambeers',
+      'bebeeru'
+      'bebeerus',
+      ...
+    ]
+    

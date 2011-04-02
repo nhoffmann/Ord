@@ -1,0 +1,18 @@
+$LOAD_PATH << File.expand_path('lib', __FILE__)
+
+require 'rake'
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+
+desc "run the server"
+task :run do |t|
+  require 'ord'
+  run Ord.app
+end
+
+desc "run cucumber features"
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format pretty"
+end
