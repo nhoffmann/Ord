@@ -41,6 +41,7 @@ Feature: consumer queries rest api
     And the searched word is "<word>"
     When I send a GET request with "<method>"
     Then the status should be "<status>"
+    And the returned content type should be json
     And the body should contain "<content>"
     
     Examples:

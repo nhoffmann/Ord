@@ -13,6 +13,11 @@ module Ord
         get '/'
         last_response.should be_ok
       end
+      
+      it "returns json" do
+        get '/'
+        last_response.headers['Content-Type'].should include('application/json')
+      end
     end
     
     describe "# GET /word/<word>" do

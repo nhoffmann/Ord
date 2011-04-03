@@ -15,6 +15,10 @@ Then /^the status should be "([^"]*)"$/ do | status |
   last_response.status.should == status.to_i
 end
 
+Then /^the returned content type should be json$/ do
+  last_response.headers['Content-Type'].should include('application/json')
+end
+
 Then /^the body should contain "([^"]*)"$/ do | word |
   body = last_response.body
   unless body.empty?

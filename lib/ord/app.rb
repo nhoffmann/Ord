@@ -1,6 +1,10 @@
 module Ord
   class App < Sinatra::Application
     
+    before do
+      content_type :json
+    end
+    
     get '/?' do
       #haml :home
     end
