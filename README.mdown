@@ -4,74 +4,92 @@
 
 ## API
 
-Here is a list of resources that you can request.
+The response will be in json and follow this format
 
-### `/<word>`
+    GET http://example.com/<method>/<word>
+
+    {
+      'query_string':'<word>',
+      'word_in_list':true | false,
+      'content':[] | {}
+    }
+
+### ``/word/<word>``
   
-Will return the status 200 if word is in list and 400 if not. The content is empty
-
-
-
 _Example:_
 
     GET http://example.com/word/beer
 
-    STATUS 200
+    {
+      'query_string':'beer',
+      'word_in_list':true,
+      'content':{
+        'previous':'beeps',
+        'next':'beerier'
+      }
+    }
     
     GET http://example.com/word/reeb
 
-    STATUS 404
+    {
+      'query_string':'xrfg',
+      'word_in_list':false,
+      'content':{}
+    }
     
   
-### `/starts-with/<word>`
+### ``/starts-with/<word>``
   
-Returns status 200 if any matches were found. The response.body will be filled with the result. If no words could be found it will return a status of 404.
-
 _Example:_
 
     GET http://example.com/starts-with/beer
 
-    STATUS 200
-
-    [
-      'beerier',
-      'beeriest',
-      'beers'
-    ]
+    {
+      'query_string':'beer',
+      'word_in_list':true,
+      'content':[
+        'beer',
+        'beerier',
+        'beeriest',
+        'beers',
+        'beery'
+      ]
+    }
   
-### `/ends-with/<word>`
-  
-Returns status 200 if any matches were found. The response.body will be filled with the result. If no words could be found it will return a status of 404.
+### ``/ends-with/<word>``
 
 _Example:_
 
     GET http://example.com/ends-with/ale
 
-    STATUS 200
-
-    [
-      'amygdale',
-      'antifemale',
-      'antimale',
-      'bale',
-      ...
-    ] 
+    {
+      'query_string':'beer',
+      'word_in_list':true,
+      'content':[
+        'ambeer',
+        'beer'
+      ]
+    } 
   
-### `/contains/<word>`
+### ``/contains/<word>``
   
-Returns status 200 if any matches were found. The response.body will be filled with the result. If no words could be found it will return a status of 404.
-
 _Example:_
 
     GET http://example.com/contains/beer
 
-    STATUS 200
-
-    [
-      'ambeer',
-      'ambeers',
-      'bebeeru'
-      'bebeerus',
-      ...
-    ]
+    {
+      'query_string':'beer',
+      'word_in_list':true,
+      'content':[
+        'ambeer',
+        'ambeers',
+        'bebeeru',
+        'bebeerus',
+        'beer',
+        'beerier',
+        'beeriest',
+        'beers',
+        'beery'
+      ]
+    }
     
