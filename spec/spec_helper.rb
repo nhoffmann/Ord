@@ -13,7 +13,6 @@ def status_is(status)
   last_response.status.should == status
 end
 
-def body_holds_array
-  content = JSON.parse last_response.body
-  content.class.should == Array
+def parse_response
+  JSON.parse last_response.body
 end

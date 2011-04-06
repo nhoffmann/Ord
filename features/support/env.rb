@@ -6,8 +6,12 @@ ENV['RACK_ENV'] = 'test'
 
 require 'rspec'
 require 'rack/test'
+require 'capybara'
+require 'capybara/cucumber'
 
 require 'ord'
+
+Capybara.app = Ord.app
 
 class OrdWorld
   def app

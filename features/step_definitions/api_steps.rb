@@ -27,12 +27,17 @@ Then /^the body should contain "([^"]*)"$/ do | word |
   end
 end
 
-Then /^the output should be of type Array$/ do
+Then /^the body should return json that equals this "([^"]*)"$/ do |expected_json|
+  expected = JSON.parse(expected_json.gsub!('\'', '"'))
+  actual   = JSON.parse(last_response.body)
+  actual.should == expected
+end
+
+
+Then /^the output should be of type Hash$/ do
   body = last_response.body
-  unless body.empty?
-    json = JSON.parse body
-    json.class.should == Array
-  end
+  json = JSON.parse body
+  json.class.should == Hash
 end
 
 

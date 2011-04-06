@@ -3,32 +3,17 @@ Feature: consumer queries rest api
   In order to use the service in my application 
   As a consumer 
   I want to be able to query the service and retrieve a JSON formatted result
-  
-  Scenario Outline: Service returns a status
+    
+  Scenario Outline: Service returns a hash
     Given I send and accept JSON
     And the searched word is "<word>"
     When I send a GET request with "<method>"
-    Then the status should be "<status>"
-    
-    Examples:
-    | word | method | status |
-    | beer | word | 200 |
-    | xrfg | word | 404 |
-    | beer | starts-with | 200 |
-    | xrfg | starts-with | 404 |
-    | beer | ends-with | 200 |
-    | xrfg | ends-with | 404 |
-    | beer | contains | 200 |
-    | xrfg | contains | 404 |
-    
-  Scenario Outline: Service returns arrays when a list of words is expected
-    Given I send and accept JSON
-    And the searched word is "<word>"
-    When I send a GET request with "<method>"
-    Then the output should be of type Array
+    Then the output should be of type Hash
     
     Examples:
     | word | method |
+    | beer | word |
+    | xrfg | word |
     | beer | starts-with |
     | xrfg | starts-with |
     | beer | ends-with |
@@ -42,17 +27,17 @@ Feature: consumer queries rest api
     When I send a GET request with "<method>"
     Then the status should be "<status>"
     And the returned content type should be json
-    And the body should contain "<content>"
+    And the body should return json that equals this "<json>"
     
     Examples:
-    | word | method | status | content |
-    | beer | word | 200 | |
-    | xrfg | word | 404 | |
-    | beer | starts-with | 200 |beer|
-    | xrfg | starts-with | 404 | |
-    | beer | ends-with | 200 |beer|
-    | xrfg | ends-with | 404 | |
-    | beer | contains | 200 |beer|
-    | xrfg | contains | 404 | |
+    | word | method | status | json |
+    | beer | word | 200 |{'query_string':'beer', 'word_in_list':true, 'content':{'previous':'beeps','next':'beerier'}}|
+    | xrfg | word | 200 |{'query_string':'xrfg', 'word_in_list':false, 'content':{}}|
+    | beer | starts-with | 200 |{'query_string':'beer', 'word_in_list':true, 'content':['beer', 'beerier', 'beeriest', 'beers', 'beery']}|
+    | xrfg | starts-with | 200 |{'query_string':'xrfg', 'word_in_list':false, 'content':[]}|
+    | beer | ends-with | 200 |{'query_string':'beer', 'word_in_list':true, 'content':['ambeer', 'beer']}|
+    | xrfg | ends-with | 200 |{'query_string':'xrfg', 'word_in_list':false, 'content':[]}|
+    | beer | contains | 200 |{'query_string':'beer', 'word_in_list':true, 'content':['ambeer', 'ambeers', 'bebeeru', 'bebeerus', 'beer', 'beerier', 'beeriest', 'beers', 'beery']}|
+    | xrfg | contains | 200 |{'query_string':'xrfg', 'word_in_list':false, 'content':[]}|
     
     

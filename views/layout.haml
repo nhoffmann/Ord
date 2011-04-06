@@ -4,4 +4,8 @@
     %meta{ :content => "text/html; charset=utf-8", :"http-equiv" => "Content-Type" }
     %meta{ :content => "en", :"http-equiv" => "Content-Language" }
     %title= "Ord"
-  %body=yield
+  %body
+    %div#content=yield
+    %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"}
+    %script{ :src => "http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"}
+    %script{ :src => "javascript/ord.js"}

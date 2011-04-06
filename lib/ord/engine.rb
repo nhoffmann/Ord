@@ -59,6 +59,16 @@ module Ord
       result
     end
     
+    def next(query_string)
+      index = @word_list.index(query_string)
+      return @word_list[index+1] if index  
+    end
+
+    def previous(query_string)
+      index = @word_list.index(query_string)
+      return @word_list[index-1] if index
+    end
+    
     def compare_string_with_substring(string, substring)
       string[0, substring.length].include?(substring)
     end
