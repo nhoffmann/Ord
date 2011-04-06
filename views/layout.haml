@@ -4,8 +4,11 @@
     %meta{ :content => "text/html; charset=utf-8", :"http-equiv" => "Content-Type" }
     %meta{ :content => "en", :"http-equiv" => "Content-Language" }
     %title= "Ord"
+    %link{ :rel => "stylesheet", :type => "text/css", :href => "stylesheet/ord.css"}
   %body
-    %div#content=yield
+    %div#wrapper
+      %div#content=yield
+      %div#copyright='&copy; 2011 <a href="http://www.zentralmaschine.net">zentralmaschine.net</a>'
     %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"}
-    %script{ :src => "http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"}
+    %script{ :src => "http://jquery-json.googlecode.com/files/jquery.json-2.2.min.js"}
     %script{ :src => "javascript/ord.js"}

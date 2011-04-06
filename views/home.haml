@@ -1,8 +1,13 @@
-%form
-  %input{:type => 'text', :name => 'input', :id => 'input'}
-  %select{:id => 'method'}
-    %option="word"
-    %option="starts-with"
-    %option="ends-with"
-  %input{:type => 'submit', :id => 'submit'}
-%div#result
+%h1="Ord"
+%p='A simple test application for the ord service. Please find more information at <a href="https://github.com/nhoffmann/Ord">github</a>'
+%h2="Input"
+%div#input
+  %form
+    %input{:type => 'text', :name => 'query', :id => 'query'}
+    %select{:name => 'method', :id => 'method'}
+      %option="word"
+      %option="starts-with"
+      %option="ends-with"
+    %input{:type => 'submit', :id => 'submit'}
+%h2="Output"
+%div#output

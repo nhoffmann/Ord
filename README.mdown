@@ -2,6 +2,8 @@
 
 'Ord' is danish and/or swedish for 'word'. Ord is a word search machine that may be fed with a list of words and you can then query it for subsets, e.g. all words starting with a certain phrase. To be honest it is pretty much a clone of [morewords.com](http://www.morewords.com/) but grew out of the need to have the results in json instead of html to be able to access it in a service architecture.
 
+You can query the service at [ord.zentralmaschine.net](http://ord.zentralmaschine.net)
+
 ## API
 
 The response will be in json and follow this format
