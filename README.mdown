@@ -38,7 +38,7 @@ _Example:_
     }
     
   
-### ``/starts-with/<word>``
+### /starts-with/&lt;word&gt;
   
 _Example:_
 
@@ -56,7 +56,7 @@ _Example:_
       ]
     }
   
-### ``/ends-with/<word>``
+### /ends-with/&lt;word&gt;
 
 _Example:_
 
@@ -71,7 +71,7 @@ _Example:_
       ]
     } 
   
-### ``/contains/<word>``
+### /contains/&lt;word&gt;
   
 _Example:_
 
