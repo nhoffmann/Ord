@@ -60,7 +60,7 @@ _Example:_
 
 _Example:_
 
-    GET http://example.com/ends-with/ale
+    GET http://example.com/ends-with/beer
 
     {
       'query_string':'beer',
