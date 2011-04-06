@@ -9,9 +9,9 @@ The response will be in json and follow this format
     GET http://example.com/<method>/<word>
 
     {
-      'query_string':'<word>',
-      'word_in_list':true | false,
-      'content':[] | {}
+      "query_string":"<word>",
+      "word_in_list":true | false,
+      "content":[] | {}
     }
 
 ### /word/&lt;word&gt;
@@ -21,20 +21,20 @@ _Example:_
     GET http://example.com/word/beer
 
     {
-      'query_string':'beer',
-      'word_in_list':true,
-      'content':{
-        'previous':'beeps',
-        'next':'beerier'
+      "query_string":"beer",
+      "word_in_list":true,
+      "content":{
+        "previous":"beeps",
+        "next":"beerier"
       }
     }
     
     GET http://example.com/word/reeb
 
     {
-      'query_string':'xrfg',
-      'word_in_list':false,
-      'content':{}
+      "query_string":"xrfg",
+      "word_in_list":false,
+      "content":{}
     }
     
   
@@ -45,14 +45,14 @@ _Example:_
     GET http://example.com/starts-with/beer
 
     {
-      'query_string':'beer',
-      'word_in_list':true,
-      'content':[
-        'beer',
-        'beerier',
-        'beeriest',
-        'beers',
-        'beery'
+      "query_string":"beer",
+      "word_in_list":true,
+      "content":[
+        "beer",
+        "beerier",
+        "beeriest",
+        "beers",
+        "beery"
       ]
     }
   
@@ -63,11 +63,11 @@ _Example:_
     GET http://example.com/ends-with/beer
 
     {
-      'query_string':'beer',
-      'word_in_list':true,
-      'content':[
-        'ambeer',
-        'beer'
+      "query_string":"beer",
+      "word_in_list":true,
+      "content":[
+        "ambeer",
+        "beer"
       ]
     } 
   
@@ -78,18 +78,18 @@ _Example:_
     GET http://example.com/contains/beer
 
     {
-      'query_string':'beer',
-      'word_in_list':true,
-      'content':[
-        'ambeer',
-        'ambeers',
-        'bebeeru',
-        'bebeerus',
-        'beer',
-        'beerier',
-        'beeriest',
-        'beers',
-        'beery'
+      "query_string":"beer",
+      "word_in_list":true,
+      "content":[
+        "ambeer",
+        "ambeers",
+        "bebeeru",
+        "bebeerus",
+        "beer",
+        "beerier",
+        "beeriest",
+        "beers",
+        "beery"
       ]
     }
     
