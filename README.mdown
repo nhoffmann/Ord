@@ -14,7 +14,7 @@ The response will be in json and follow this format
       'content':[] | {}
     }
 
-### /word/<word>
+### /word/&lt;word&gt;
   
 _Example:_
 
